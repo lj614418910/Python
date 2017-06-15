@@ -105,3 +105,85 @@ print 'hello' # 这也是注释
 - `t = ('a', 'b', ['A', 'B']); t[2][0] = 'X';t[2][1] = 'Y'`、`t >>> ('a', 'b', ['X', 'Y'])`
 - 这个tuple定义的时候有3个元素，分别是`'a'`，`'b'`和一个`list`。<br/>![](./4.jpg)<br/>当我们把list的元素'A'和'B'修改为'X'和'Y'后，tuple变为：<br/>![](./5.jpg)
 - tuple的元素确实变了，但其实变的不是tuple的元素，而是list的元素。所以，tuple所谓的“不变”是说，tuple的每个元素，指向永远不变。
+
+## Day 4
+##### 缩进规则
+- Python严格要求4个空格，不要使用Tab，更不要混合Tab和空格。
+
+##### 条件判断
+- 如果`if`语句判断是`True`,就把缩进的代码块执行。条件判断后的冒号不能少。
+	
+	```
+	if <条件判断1>:
+	    <执行1>
+	elif <条件判断2>:
+	    < 执行2>
+	elif <条件判断3>:
+	    <执行3>
+	else:
+	    <执行4>
+	```
+- `if`语句执行有个特点，它是从上往下判断，如果在某个判断上是`True`，把该判断对应的语句执行后，就忽略掉剩下的`elif`和`else`
+- if判断条件还可以简写，比如写：
+
+	```
+	if x:
+	    print('True')
+	```
+只要`x`是非零数值、非空字符串、非空list等，就判断为`True`，否则为`False`。
+
+- input()
+	- `input()`是用来读取用户的输入的。
+	
+	```
+	birth = input('birth: ')
+	if birth < 2000:
+	    print('00前')
+	else:
+	    print('00后')
+	```
+	- 但是上面的代码输入一个数后会报错，因为input()返回的数据类型是str，str不能直接和整数比较，必须先把str转换成整数。Python提供了int()函数来完成这件事情：
+
+	```
+	s = input('birth: ')
+	birth = int(s)
+	if birth < 2000:
+	    print('00前')
+	else:
+	    print('00后')
+	
+	```
+	- 但是，如果输入`abc`呢？又会得到一个错误信息,`int()`函数发现一个字符串并不是合法的数字时就会报错，程序就退出了。
+
+##### 循环
+- Python的循环有两种，一种是`for...in`循环，依次把`list`或`tuple`中的每个元素迭代出来:
+
+	```
+	names = ['Michael', 'Bob', 'Tracy']
+	for name in names:
+	    print(name) 
+	```
+	执行这段代码，会依次打印names的每一个元素。
+- `range()`函数: 可以生成一个整数序列，再通过`list()`或`tuple()`函数可以转换为`list`或`tuple`。
+
+	```
+	sum = 0
+	for x in range(101):
+	    sum = sum + x
+	print(sum)
+	```
+- 第二种循环是`while`循环，只要条件满足，就不断循环，条件不满足时退出循环。计算100以内所有奇数之和，可以用`while`循环实现：
+
+	```
+	sum = 0
+	n = 99
+	while n > 0:
+    	sum = sum + n
+    	n = n - 2
+	print(sum)
+	```
+	在循环内部变量`n`不断自减，直到变为`-1`时，不再满足`while`条件，循环退出。
+- `break`退出循环:用for 循环或者 while 循环时，如果要在循环体内直接退出循环，可以使用 break 语句
+-  `continue`跳过本次循环:在循环过程中，可以用break退出当前循环，还可以用continue跳过后续循环代码，继续下一次循环。
+	
+	
