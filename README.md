@@ -15,7 +15,7 @@
 ### 空值
 - 空值是Python里一个特殊的值，用None表示。None不能理解为0，因为0是有意义的，而None是一个特殊的空值。
 
-#### print
+### print
 - 写法`print 'hello world'`或`print('hello world')`。
 - Python2 里面print可以直接接字符串或者运算。Python3 里面print变成了一个函数，上面的写法不支持了，必须用一个括号括起来，否则会报告语法错误。 
 - print会依次打印每个字符串，遇到逗号“,”会输出一个空格，然后将输出的字符串拼接起来。
